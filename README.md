@@ -1,6 +1,8 @@
-## Getting Started
+## Welcome
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This is a starter repo for me to start learning Java, having familiarised myself with Python I felt it was time to start learning another language, and Java was an obvious successor.
+
+The rest of this readme will be left as the default VSCode Java project as I always forget basic formatting.
 
 ## Folder Structure
 
