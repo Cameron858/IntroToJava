@@ -3,6 +3,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
 
+    
+    /** 
+     * @param args
+     */
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -23,6 +27,12 @@ public class Main {
         sc.close();
     }
 
+    
+    /** 
+     * Gets user's name from stdout as a string
+     * @param sc Scanner: Scanner object injected instead of creating a new one. 
+     * @return String name: Users name
+     */
     public static String GetName(Scanner sc) {
 
         System.out.println("Enter your name: ");
@@ -31,6 +41,13 @@ public class Main {
         return name;
     }
 
+    
+    /** 
+     * Prints the final message of the game.
+     * @param name String: users name   
+     * @param guesses Int: number of guesses user has had
+     * @param answer Int: the answer to the game
+     */
     public static void PrintFinalMessage(String name, int guesses, int answer) {
         System.out.println("Well done " + name + "!");
         System.out.println("You had " + guesses + " guesses!");
