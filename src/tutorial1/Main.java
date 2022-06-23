@@ -8,7 +8,7 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        RandomNumberGuesser game = new RandomNumberGuesser(0, 10, 5);
+        RandomNumberGuesser game = new RandomNumberGuesser(0, 10, 5, new ConsoleUI());
         game.play();
         
         }

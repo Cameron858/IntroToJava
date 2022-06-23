@@ -11,17 +11,20 @@ public class RandomNumberGuesser {
     private int min;
     private int max;
     private int lives;
+    private UI ui;
 
     /**
      * 
      * @param min Minimum random number the answer can be.
      * @param max Maximum random number the answer can be.
      * @param lives Number of attempts the user has to guess the answer
+     * @param ui UI child class for displaying messages to user
      */
-    public RandomNumberGuesser(int min, int max, int lives) {
+    public RandomNumberGuesser(int min, int max, int lives, UI ui) {
         this.min = min;
         this.max = max;
         this.lives = lives;
+        this.ui = ui;
     }
 
     /**
@@ -38,25 +41,25 @@ public class RandomNumberGuesser {
         do {
 
             if (this.lives <= 0) {
-                System.out.println("You ran out of lives!");
-                System.out.println("The answer was " + answer);
+                this.ui.loseMessage(name);
+                this.ui.displayAnswer(answer);
                 break;
             }
 
-            System.out.print("Enter your guess: ");
+            this.ui.enterGuess();
             guess = sc.nextInt();
 
             if (guess == answer) {
-                System.out.println("Congrats " + name + ", you won!");
+                this.ui.winMessage(name);
                 break;
             } else if (guess > answer) {
-                System.out.println("Too high!");
+                this.ui.guessTooHigh();
             } else if (guess < answer) {
-                System.out.println("Too low!");
+                this.ui.guessTooHigh();
             }
             
             this.lives--;
-            System.out.println("You have " + this.lives + " lives left!");
+            this.ui.livesCheck(this.lives);
 
         } while (true);
         
@@ -66,11 +69,12 @@ public class RandomNumberGuesser {
 
     
     /** 
+     * Gets the users username
      * @param sc
      * @return String
      */
     private String GetUsername(Scanner sc) {
-        System.out.print("Enter your name: ");
+        this.ui.enterName();
         String name = sc.nextLine();
         return name;
     }
