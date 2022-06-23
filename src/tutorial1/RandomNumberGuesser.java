@@ -34,8 +34,16 @@ public class RandomNumberGuesser {
         int guess;
         int answer = ThreadLocalRandom.current().nextInt(this.min, this.max + 1); // sets random integer to between min and max values
         
-        while (true) {
-            System.out.print("Enter your guess:");
+        // do while contains main game loop
+        do {
+
+            if (this.lives <= 0) {
+                System.out.println("You ran out of lives!");
+                System.out.println("The answer was " + answer);
+                break;
+            }
+
+            System.out.print("Enter your guess: ");
             guess = sc.nextInt();
 
             if (guess == answer) {
@@ -45,15 +53,14 @@ public class RandomNumberGuesser {
                 System.out.println("Too high!");
             } else if (guess < answer) {
                 System.out.println("Too low!");
-            } else if (this.lives == 0) {
-                System.out.println("You ran out of lives!");
-                System.out.println("The answer was " + answer);
-                break;
             }
-
+            
             this.lives--;
-        }
+            System.out.println("You have " + this.lives + " lives left!");
 
+        } while (true);
+        
+        // explicilty closes scanner
         sc.close();
     }
 
@@ -63,7 +70,7 @@ public class RandomNumberGuesser {
      * @return String
      */
     private String GetUsername(Scanner sc) {
-        System.out.println("Enter your name: ");
+        System.out.print("Enter your name: ");
         String name = sc.nextLine();
         return name;
     }
