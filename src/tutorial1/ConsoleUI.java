@@ -1,13 +1,24 @@
 package tutorial1;
 
+import java.util.Scanner;
+
 public class ConsoleUI implements UI{
 
-    public void enterName() {
-        System.out.print("Enter your name: ");
+    private Scanner sc;
+
+    public ConsoleUI() {
+        this.sc = new Scanner(System.in);
     }
 
-    public void enterGuess() {
+    public String enterName() {
+        System.out.print("Enter your name: ");
+        String name = sc.nextLine();
+        return name;
+    }
+
+    public int enterGuess() {
         System.out.print("Enter your guess: ");
+        return this.sc.nextInt();
     }
 
     public void guessTooHigh() {
