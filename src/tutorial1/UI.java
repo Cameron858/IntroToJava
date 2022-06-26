@@ -2,9 +2,9 @@ package tutorial1;
 
 public interface UI {
 
-    public void enterName();
+    public String enterName();
 
-    public void enterGuess();
+    public int enterGuess();
 
     public void guessTooHigh();
 
