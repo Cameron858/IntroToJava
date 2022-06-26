@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Implements a simple random number guess game.
+ * Implements a simple random number guessing game.
  */
 public class RandomNumberGuesser {
 
@@ -40,15 +40,17 @@ public class RandomNumberGuesser {
         // do while contains main game loop
         do {
 
+
+            // check if user has lost
             if (this.lives <= 0) {
                 this.ui.loseMessage(name);
                 this.ui.displayAnswer(answer);
                 break;
             }
-
-            this.ui.enterGuess();
-            guess = sc.nextInt();
-
+            
+            // get next guess and compare to answer
+            guess = this.ui.enterGuess();
+            
             if (guess == answer) {
                 this.ui.winMessage(name);
                 break;
@@ -74,9 +76,7 @@ public class RandomNumberGuesser {
      * @return String
      */
     private String GetUsername(Scanner sc) {
-        this.ui.enterName();
-        String name = sc.nextLine();
-        return name;
+        return this.ui.enterName();
     }
 
 }
